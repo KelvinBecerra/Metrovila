@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+@font-face {
+    font-family: 'Skranji';
+    src: url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -6,14 +12,11 @@ body, html {
 body{
     background-color: #cb7308ff ;
 }
-footer{
-    background-color: white;
-}
 header{
     position: relative;
     width: 100%;
     height: 300px; /* Altura del header */
-    background-image: url('avila.jpg'); /* Ruta de la imagen */
+    background-image: url('avila1.jpg'); /* Ruta de la imagen */
     background-size: cover;
     background-position: center; /* Centra la imagen en el header */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -40,9 +43,10 @@ header{
     cursor: pointer;
     height: 100px;
     width: 180px;
-    color: orange;
+    color:#ff9009;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     font-size: 20px;
-    font-family: skrar;/*buscar el tipo de fuente skranji*/
+    font-family: "Skranji";
     /*Cosas que faltan
     el mensaje de mision y visio
     bajar el footer
@@ -51,3 +55,82 @@ header{
 .btn:hover {
     background-color: #ffc174;
   }
+.bienvenida{
+    font-size: 32px;
+    font-family: "Skranji";
+    display: flex;
+    justify-content: center;
+    padding: 0.1px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: white;
+}
+
+.bienvenida p{
+    font-size: 16px;
+    justify-content: center;
+    max-width: 850px;
+    margin: 10px 50px 20px 0;
+    }
+
+.mision{
+        text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+        text-shadow:0px 0px 0px 0.1px black ;
+        display: flex;
+        justify-content: center;
+        border-radius: 30px;
+        background: linear-gradient(to right, white, #ff9009); /*de der a izq blaco a naranja*/
+        width: 300px;
+        position: absolute;
+        margin: 20px ;
+        top: 100%;
+        left: 450px;
+        transform: translate(-50%, -50%);
+    }
+#parrafo{
+    display: flex;
+    width: 700px;
+    border-radius: 30px;
+    background:linear-gradient(to bottom,white,#ff9009) ;
+    position: absolute;
+    padding: 20px ;
+    margin: 10px;
+    left: 300px;
+    top: 120%;
+    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Skranji";
+}
+#ruta{
+    display: flex;
+    margin-top: 500px;
+    margin-left: 500px;
+    border-radius: 30px;
+    padding: 40px;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    font-size: 40px;
+    font-family: "Skranji";
+    color: #ff9009;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+#ruta:hover{
+    background-color: #ffc174;
+
+}
+.contacto{
+    
+    margin-top: 50px;
+    padding-top: 5px;
+    padding: 40px;
+    background-color: white;
+    height: 100px;
+    
+}
