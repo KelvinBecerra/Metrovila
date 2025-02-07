@@ -105,26 +105,27 @@ header{
     align-items: center;
     font-family: "Skranji";
 }
-#ruta{
+.ruta{
     display: flex;
-    margin-top: 500px;
-    margin-left: 500px;
-    border-radius: 30px;
-    padding: 40px;
-    width: 400px;
-    align-items: center;
-    justify-content: center;
-    height: 20px;
+    margin-top:500px; 
+    margin-left: 500px; 
+    border-radius: 30px; 
+    padding: 40px; 
+    width: 400px; 
+    align-items: center; 
+    justify-content: center; 
+    height: 20px; 
     font-size: 40px;
-    font-family: "Skranji";
-    cursor: pointer;
-    color: #ff9009;
-    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-}
-#ruta:hover{
-    background-color: #ffc174;
-
+    font-family: "Skranji"; 
+    cursor: pointer; 
+    text-decoration: none; 
+    color: #ff9009; 
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); } 
+.ruta:hover{ 
+    background-color: #ffc174; }
+#rutaid{
+    text-decoration: none;
 }
 .contacto{
     

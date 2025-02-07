@@ -5,8 +5,13 @@ function Header() {
   return (
     <header>
       <div class="header-buttons">
-        <button class="btn ">Registrar</button>
+        <a href='/formulario'>
+          <button class="btn ">Registrar</button>
+        </a>
+        <a href="/iniciosesion">
         <button class="btn ">Iniciar Sesion</button>
+
+        </a>
       </div>
       <div class="logo">
         <img id="logo" src={logo} alt="Logo" />{/*comentarios en react*/}
