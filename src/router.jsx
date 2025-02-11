@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Moldepages from "./layout/moldepages";
-
+import Formulariomolde from "./layout/Formulariomolde";
 import Home from "./pages/Home";
 import Formulario from "./pages/Formulario"
 import Inisesion from "./pages/Inisesion"
@@ -10,6 +10,10 @@ export const router = createBrowserRouter([
     {
         path:"/",
         element: <Moldepages/>,
+        /*aqui se le esta asignando el diseno de pagina principal
+        a las paginas que esten como hijos
+        las cuales deberian ser las de inicio
+         */
         children: [
             {
                 path:"/",
@@ -17,9 +21,16 @@ export const router = createBrowserRouter([
             },
         ]
     },
-    {
+    {/**aqui se le esta asignando el diseno a la pagina formulario */
         path:"/formulario",
-        element: <Formulario/>
+        element: <Formulariomolde/>,
+        children:[
+            {
+                path:"/formulario",
+                element: <Formulario/>
+            }
+        ]
+       
     },
     {
         path:"/iniciosesion",

@@ -14,7 +14,7 @@ function Header() {
         </a>
       </div>
       <div class="logo">
-        <img id="logo" src={logo} alt="Logo" />{/*comentarios en react*/}
+        <img id="logo" src={logo} alt="Logo" />{/*Aqui es donde se esta importando el logo*/}
       </div>
     </header>
   )
