@@ -162,3 +162,90 @@ header{
         width: 20rem;
     }
 }
+#sesion{
+    color: white;
+}
+.imagenuser {
+    border-radius: 30px;
+    width: 200px;
+    height: 190px;
+}
+
+.imagenuser-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.labelcitos{
+    color: white;
+    font-size: 25px;
+    padding-right: 26rem;
+}
+.labelcito{
+    color: white;
+    font-size: 25px;
+    padding-right: 23rem;
+}
+.inputcito{
+    height: 25px;
+    width: 30rem;
+    border-radius: 10px;
+    background-color: #AD6014;
+}
+.inisesion-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.botoncitos{
+    background-color: #AD6014;
+    color: white;
+    border-radius: 10px;
+
+    
+}
+.botoncitos:hover{
+    
+    background-color: #ff9009;
+    color: black;
+    cursor: pointer;
+}
+.containerboton{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.botoncitomain{
+    background-color: #AD6014;
+    color: white;
+    width: 20rem;
+    height: 5rem;
+    border-radius: 20px;
+    font-family: "Skranji";
+    font-size: 2rem;
+
+}
+.botoncitomain:hover{
+    background-color: #ff9009;
+    color: black;
+    cursor: pointer;
+}
+.botoncitosini{
+    background-color: #AD6014;
+    color: white;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-family: "Skranji";
+
+}
+.botoncitosini:hover{
+    
+    background-color: #ff9009;
+    color: black;
+    cursor: pointer;
+}

@@ -19,6 +19,10 @@ export const router = createBrowserRouter([
                 path:"/",
                 element: <Home/>
             },
+            {
+                path:"/TuSesion",
+                element: <Inisesion/>
+            }
         ]
     },
     {/**aqui se le esta asignando el diseno a la pagina formulario */
