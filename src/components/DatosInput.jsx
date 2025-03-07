@@ -16,7 +16,7 @@ function DatosInput() {
         <label htmlFor="confirmar">Confirmacion</label>
         <input type="text" id='confirmar' />
       </form>
-      <button>Google</button>
+      <button className='botoncitosini'>Google</button>
       <button>Facebook</button>
       <button>Continuar</button>
       <button>Cambiar foto</button>

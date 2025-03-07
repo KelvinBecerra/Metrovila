@@ -28,6 +28,7 @@ function Inisesion() {
           <button className='botoncitosini'>Inicio</button>
           </a>
           
+          
             <button className='botoncitosini' onClick={call_login_google}>Google</button>
           
           
