@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Moldepages from "./layout/moldepages";
+import Moldepages from "./layout/Moldepages";
 import Formulariomolde from "./layout/Formulariomolde";
 import Home from "./pages/Home";
 import Formulario from "./pages/Formulario"
