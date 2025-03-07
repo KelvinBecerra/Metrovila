@@ -1,5 +1,5 @@
 import Bienvenida from '../components/Bienvenida'
-import Mision from '../components/mision'
+import Mision from '../components/Mision'
 function Home() {
   return (
     <>
