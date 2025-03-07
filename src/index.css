@@ -157,10 +157,14 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
+    bottom{
+        padding: 1rem;
+    }
     input {
         width: 20rem;
     }
+    
 }
 #sesion{
     color: white;
@@ -250,3 +254,6 @@ header{
     cursor: pointer;
 }
 
+#botongoogleform{
+    padding-left:  45%;
+}

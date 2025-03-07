@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       <div class="header-buttons">
-        <a href='/Formulario'>
+        <a href='/formulario'>
           <button class="btn ">Registrar</button>
         </a>
         <a href="/iniciosesion">

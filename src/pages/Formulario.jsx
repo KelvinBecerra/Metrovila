@@ -6,7 +6,6 @@ function Formulario() {
   return (
     <div>
       
-      <h1>Estas en formulario</h1>
       <DatosInput/>
       <a href="/">
         <button>home</button>
