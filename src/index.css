@@ -105,26 +105,27 @@ header{
     align-items: center;
     font-family: "Skranji";
 }
-#ruta{
+.ruta{
     display: flex;
-    margin-top: 500px;
-    margin-left: 500px;
-    border-radius: 30px;
-    padding: 40px;
-    width: 400px;
-    align-items: center;
-    justify-content: center;
-    height: 20px;
+    margin-top:500px; 
+    margin-left: 500px; 
+    border-radius: 30px; 
+    padding: 40px; 
+    width: 400px; 
+    align-items: center; 
+    justify-content: center; 
+    height: 20px; 
     font-size: 40px;
-    font-family: "Skranji";
-    cursor: pointer;
-    color: #ff9009;
-    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-}
-#ruta:hover{
-    background-color: #ffc174;
-
+    font-family: "Skranji"; 
+    cursor: pointer; 
+    text-decoration: none; 
+    color: #ff9009; 
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); } 
+.ruta:hover{ 
+    background-color: #ffc174; }
+#rutaid{
+    text-decoration: none;
 }
 .contacto{
     
@@ -135,3 +136,117 @@ header{
     height: 100px;
     
 }
+.logoform{
+    margin-top: 10px;
+    margin-left: 40%;
+}
+.logoform img{
+    height: 100px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 30px;
+}
+.headerform {
+    background-color: white;
+    background-image: none;
+    height: fit-content;
+}
+
+#formReg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+        width: 20rem;
+    }
+}
+#sesion{
+    color: white;
+}
+.imagenuser {
+    border-radius: 30px;
+    width: 200px;
+    height: 190px;
+}
+
+.imagenuser-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.labelcitos{
+    color: white;
+    font-size: 25px;
+    padding-right: 26rem;
+}
+.labelcito{
+    color: white;
+    font-size: 25px;
+    padding-right: 23rem;
+}
+.inputcito{
+    height: 25px;
+    width: 30rem;
+    border-radius: 10px;
+    background-color: #AD6014;
+}
+.inisesion-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.botoncitos{
+    background-color: #AD6014;
+    color: white;
+    border-radius: 10px;
+
+    
+}
+.botoncitos:hover{
+    
+    background-color: #ff9009;
+    color: black;
+    cursor: pointer;
+}
+.containerboton{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.botoncitomain{
+    background-color: #AD6014;
+    color: white;
+    width: 20rem;
+    height: 5rem;
+    border-radius: 20px;
+    font-family: "Skranji";
+    font-size: 2rem;
+
+}
+.botoncitomain:hover{
+    background-color: #ff9009;
+    color: black;
+    cursor: pointer;
+}
+.botoncitosini{
+    background-color: #AD6014;
+    color: white;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-family: "Skranji";
+
+}
+.botoncitosini:hover{
+    
+    background-color: #ff9009;
+    color: black;
+    cursor: pointer;
+}
+
