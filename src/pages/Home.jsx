@@ -3,20 +3,8 @@ import Mision from '../components/Mision'
 function Home() {
   return (
     <>
-      <header>
-            <div class="header-buttons">
-              <a href='/formulario'>
-                <button class="btn ">Registrar</button>
-              </a>
-              <a href="/iniciosesion">
-              <button class="btn ">Iniciar Sesion</button>
-      
-              </a>
-            </div>
-            <div class="logo">
-              <img id="logo" src={logo} alt="Logo" />{/*Aqui es donde se esta importando el logo*/}
-            </div>
-          </header>
+      <Bienvenida/>
+      <Mision/>
     </>
   )
 }
