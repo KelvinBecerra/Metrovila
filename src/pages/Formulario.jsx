@@ -7,6 +7,7 @@ function Formulario() {
     <div>
       
       <DatosInput/>
+      <button>Ingresar</button>
       <a href="/">
         <button>home</button>
       </a>
