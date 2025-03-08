@@ -5,9 +5,7 @@ function Home() {
     <>
       <Bienvenida/>
       <Mision/>
-      <a href="/iniciosesion">
-        <button>boton de iniciado</button>
-      </a>
+      
     </>
   )
 }
