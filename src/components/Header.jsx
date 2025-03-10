@@ -4,7 +4,6 @@ import { useContext } from 'react'
 import { UserContext } from '../app'
 import { signOut } from 'firebase/auth'
 import { auth } from '../pages/Firebase.js'; 
-
 //componente Header
 function Header() {
   const {user,setUser} = useContext(UserContext)
@@ -20,7 +19,7 @@ function Header() {
 
 
 //con user.displayName se puede acceder al nombre del usuario
-
+//lo primero que se encuentra es un condicional que verifica si el usuario esta logeado o no
 return (
     <header>
       

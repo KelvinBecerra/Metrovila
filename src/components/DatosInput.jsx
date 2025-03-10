@@ -1,12 +1,16 @@
 import React from 'react';
-import { provider,auth,db } from '../pages/Firebase.js';
+import { provider,auth,db  } from '../pages/Firebase.js';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { signInWithPopup } from 'firebase/auth'
 import { doc, setDoc } from 'firebase/firestore';
-import{getAuth,createUserWithEmailAndPassword} from 'firebase/auth';
+import{createUserWithEmailAndPassword,updateProfile,getAuth} from 'firebase/auth';
+import { UserContext } from '../app.jsx';
+
+
 function DatosInput() {
   //declaracion de las variables a usar
+  const { setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null); 
   const [nombre,setnombre]=useState('');
@@ -20,49 +24,69 @@ function DatosInput() {
     
     try {
       setLoading(true);
-      const registradito=await createUserWithEmailAndPassword(auth,correo, contrasena)
       if(contrasena.length<6){
-        alert("Contrasena muy corta")
+        alert("Contraseña muy corta");
+        setLoading(false);
+        return;
       }
-      console.log(registradito,correo)
+      
+    const registradito = await createUserWithEmailAndPassword(auth, correo, contrasena);
+    const user = registradito.user;
+      // Guarda el usuario en el contexto
+    
+    // Actualiza el perfil del usuario con el nombre y apellido
+    await updateProfile(user, {
+      displayName: `${nombre} ${apellido}`
+    });
+    setUser(user);
+    
+    //location.reload() recarga toda la página, 
+    // lo que provoca que el estado de la aplicación se restablezca y
+    //  se pierdan los cambios realizados
+    // Guarda los datos del usuario en Firestore
+    //la variable que almacena la base de datos se llama db, ahi es donde se almacenara la info
+
+    await setDoc(doc(db, "users", user.uid), {
+      email: user.email,
+      displayName: user.displayName,
+      uid: user.uid
+    });
       
 
-
+      
       setError(null)
       setLoading(false);
       navigate("/");
       scroll(0, 0);
-      location.reload();
     } catch (error) {
       console.log(error.message);
       setError(error.message);
       setLoading(false);
     }
   }
-
+//funcion encargada de logear al usuario con google
+//y redireccionar a la pagina principal
   const loginPopupGoogle = async () => {
     setLoading(true);
     provider.setCustomParameters({ prompt: 'select_account' });
     try {
-        const result = await signInWithPopup(auth, provider);
-        const {user} = result;
-        await setDoc(doc(db, 'usuarios', user.uid), {
-          nombre: user.displayName,
-          correo: user.email
-        });
-        setError(null);
-        setLoading(false);
-        navigate("/")
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
 
-        scroll(0, 0);
-        location.reload();
+      setUser(user); // Actualiza el valor de user en el contexto
+
+      setError(null);
+      setLoading(false);
+      navigate("/");
+
+      scroll(0, 0);
     } catch (error) {
-        console.log(error.message);
+      console.log(error.message);
 
-        setError(error.message);
-        setLoading(false);
-        }
-    };
+      setError(error.message);
+      setLoading(false);
+    }
+  };
 
 //onChange es un evento que se dispara cada vez que el input cambia de valor
   return (
