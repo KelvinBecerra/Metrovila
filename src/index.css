@@ -8,19 +8,21 @@ body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-body{
-    background-color: #cb7308ff ;
 }
-header{
+
+body {
+    background-color: #cb7308ff;
+}
+
+header {
     position: relative;
     width: 100%;
-    height: 300px; /* Altura del header */
-    background-image: url('./assets/avila.jpg'); /* Ruta de la imagen */
+    height: 300px;
+    background-image: url('./assets/avila.jpg');
     background-size: cover;
-    background-position: center; /* Centra la imagen en el header */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); /* Sombra difuminada debajo del header */
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .logo img {
@@ -29,254 +31,129 @@ header{
     padding: 10px;
     border-radius: 30px;
 }
-.header-buttons{
+
+.header-buttons {
     position: absolute;
     top: 10px;
     right: 10px;
     display: flex;
     gap: 10px;
 }
-.btn{
+
+.btn {
     border: none;
     border-radius: 30px;
     padding: 10px 20px;
     cursor: pointer;
     height: 100px;
     width: 180px;
-    color:#ff9009;
+    color: #ff9009;
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     font-size: 20px;
     font-family: "Skranji";
-    /*Cosas que faltan
-    el mensaje de mision y visio
-    bajar el footer
-    que los botones funcionen*/
-}
-/*diseno para que se vea el nombre del usuario*/
-.holauser{
-    color: white;
-    font-size: 20px;
-    font-family: "Skranji";
-    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    background-color: #AD6014;
-    border-radius: 30px;
-    padding: 10px;
-}
-.btns{
-    border: none;
-border-radius: 30px;
-padding: 10px 20px;
-cursor: pointer;
-height: 80px;
-width: 150px;
-color:#ff9009;
-text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
-font-size: 20px;
-font-family: "Skranji";
 }
 
 .btn:hover {
     background-color: #ffc174;
-  }
-.bienvenida{
+}
+
+.holauser {
+    color: white;
+    font-size: 20px;
+    font-family: "Skranji";
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #AD6014;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.bienvenida {
     font-size: 32px;
     font-family: "Skranji";
     display: flex;
     justify-content: center;
-    padding: 0.1px;
     text-align: center;
-    display: flex;
     align-items: center;
-    justify-content: center;
     margin: 0;
     color: white;
+    padding: 10px;
 }
 
-.bienvenida p{
-    font-size: 16px;
+.mision {
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
     justify-content: center;
-    max-width: 850px;
-    margin: 10px 50px 20px 0;
-    }
-
-.mision{
-        text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-        text-shadow:0px 0px 0px 0.1px black ;
-        display: flex;
-        justify-content: center;
-        border-radius: 30px;
-        background: linear-gradient(to right, white, #ff9009); /*de der a izq blaco a naranja*/
-        width: 300px;
-        position: absolute;
-        margin: 20px ;
-        top: 100%;
-        left: 450px;
-        transform: translate(-50%, -50%);
-    }
-#parrafo{
-    display: flex;
-    width: 700px;
     border-radius: 30px;
-    background:linear-gradient(to bottom,white,#ff9009) ;
-    position: absolute;
-    padding: 20px ;
-    margin: 10px;
-    left: 300px;
-    top: 120%;
+    background: linear-gradient(to right, white, #ff9009);
+    width: 300px;
+    margin: 20px auto;
+}
+
+#parrafo {
+    width: 90%;
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 30px;
+    background: linear-gradient(to bottom, white, #ff9009);
     font-size: 20px;
-    flex-direction: column;
-    align-items: center;
     font-family: "Skranji";
+    text-align: center;
 }
-.ruta{
-    display: flex;
-    margin-top:500px; 
-    margin-left: 500px; 
-    border-radius: 30px; 
-    padding: 40px; 
-    width: 400px; 
-    align-items: center; 
-    justify-content: center; 
-    height: 20px; 
-    font-size: 40px;
-    font-family: "Skranji"; 
-    cursor: pointer; 
-    text-decoration: none; 
-    color: #ff9009; 
-    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); 
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); } 
-.ruta:hover{ 
-    background-color: #ffc174; }
-#rutaid{
-    text-decoration: none;
-}
-.contacto{
-    
+
+.contacto {
     margin-top: 50px;
-    padding-top: 5px;
     padding: 40px;
     background-color: white;
     height: 100px;
-    
-}
-.logoform{
-    margin-top: 10px;
-    margin-left: 40%;
-}
-.logoform img{
-    height: 100px;
-    margin-right: 10px;
-    padding: 10px;
-    border-radius: 30px;
-}
-.headerform {
-    background-color: white;
-    background-image: none;
-    height: fit-content;
+    text-align: center;
 }
 
-#formReg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    bottom{
-        padding: 1rem;
+@media (max-width: 768px) {
+    header {
+        height: 200px;
     }
-    input {
-        width: 20rem;
+    .btn {
+        height: 80px;
+        width: 150px;
+        font-size: 18px;
     }
-    
-}
-#sesion{
-    color: white;
-}
-.imagenuser {
-    border-radius: 30px;
-    width: 200px;
-    height: 190px;
-}
-
-.imagenuser-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-}
-.labelcitos{
-    color: white;
-    font-size: 25px;
-    padding-right: 26rem;
-}
-.labelcito{
-    color: white;
-    font-size: 25px;
-    padding-right: 23rem;
-}
-.inputcito{
-    height: 25px;
-    width: 30rem;
-    border-radius: 10px;
-    background-color: #AD6014;
-}
-.inisesion-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    .holauser {
+        font-size: 18px;
+        padding: 8px;
+    }
+    .bienvenida {
+        font-size: 28px;
+    }
+    #parrafo {
+        font-size: 18px;
+        padding: 15px;
+    }
+    .mision {
+        width: 250px;
+    }
 }
 
-.botoncitos{
-    background-color: #AD6014;
-    color: white;
-    border-radius: 10px;
-
-    
-}
-.botoncitos:hover{
-    
-    background-color: #ff9009;
-    color: black;
-    cursor: pointer;
-}
-.containerboton{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-.botoncitomain{
-    background-color: #AD6014;
-    color: white;
-    width: 20rem;
-    height: 5rem;
-    border-radius: 20px;
-    font-family: "Skranji";
-    font-size: 2rem;
-
-}
-.botoncitomain:hover{
-    background-color: #ff9009;
-    color: black;
-    cursor: pointer;
-}
-.botoncitosini{
-    background-color: #AD6014;
-    color: white;
-    border-radius: 10px;
-    font-size: 2rem;
-    font-family: "Skranji";
-
-}
-.botoncitosini:hover{
-    
-    background-color: #ff9009;
-    color: black;
-    cursor: pointer;
-}
-
-#botongoogleform{
-    padding-left:  45%;
+@media (max-width: 480px) {
+    header {
+        height: 150px;
+    }
+    .btn {
+        height: 60px;
+        width: 120px;
+        font-size: 16px;
+    }
+    .holauser {
+        font-size: 16px;
+    }
+    .bienvenida {
+        font-size: 24px;
+    }
+    #parrafo {
+        font-size: 16px;
+        padding: 10px;
+    }
+    .mision {
+        width: 200px;
+    }
 }
