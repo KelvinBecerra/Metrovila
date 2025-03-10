@@ -15,9 +15,18 @@ function Header() {
     scroll(0, 0);
     
 };
-  return (
+//verificar tambien que cuando se le click a la ruta, siga iniciada la sesion
+//tambien se pueda registrar el usuario con el formulario y de esa manera tambien se pueda registrar en la pagina
+
+
+//con user.displayName se puede acceder al nombre del usuario
+
+return (
     <header>
-      {user ? ( <button onClick={logout}>SignOut</button> ) :
+      
+      {user ? (<div className='header-buttons'>
+         <p className='holauser'>Hola, {user.displayName}</p>
+          <button className='btns' onClick={logout}>SignOut</button></div> ) :
        (<div class="header-buttons">
         <a href='/formulario'>
           <button class="btn ">Registrar</button>

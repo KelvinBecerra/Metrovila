@@ -52,6 +52,29 @@ header{
     bajar el footer
     que los botones funcionen*/
 }
+/*diseno para que se vea el nombre del usuario*/
+.holauser{
+    color: white;
+    font-size: 20px;
+    font-family: "Skranji";
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #AD6014;
+    border-radius: 30px;
+    padding: 10px;
+}
+.btns{
+    border: none;
+border-radius: 30px;
+padding: 10px 20px;
+cursor: pointer;
+height: 80px;
+width: 150px;
+color:#ff9009;
+text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+font-size: 20px;
+font-family: "Skranji";
+}
+
 .btn:hover {
     background-color: #ffc174;
   }
