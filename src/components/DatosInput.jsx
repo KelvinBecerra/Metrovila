@@ -1,4 +1,5 @@
 import React from 'react';
+import HumboldtImage from '../assets/Humboldt.png'; // Importa la imagen
 import { provider,auth,db  } from '../pages/Firebase.js';
 import { useNavigate } from 'react-router-dom';
 import { useState,useContext } from 'react';
@@ -6,7 +7,6 @@ import { signInWithPopup } from 'firebase/auth'
 import { doc, setDoc } from 'firebase/firestore';
 import{createUserWithEmailAndPassword,updateProfile,getAuth} from 'firebase/auth';
 import { UserContext } from '../app.jsx';
-
 
 function DatosInput() {
   //declaracion de las variables a usar
@@ -45,6 +45,8 @@ function DatosInput() {
     //  se pierdan los cambios realizados
     // Guarda los datos del usuario en Firestore
     //la variable que almacena la base de datos se llama db, ahi es donde se almacenara la info
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
     await setDoc(doc(db, "users", user.uid), {
       email: user.email,
@@ -69,6 +71,7 @@ function DatosInput() {
   const loginPopupGoogle = async () => {
     setLoading(true);
     provider.setCustomParameters({ prompt: 'select_account' });
+
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
@@ -90,30 +93,37 @@ function DatosInput() {
 
 //onChange es un evento que se dispara cada vez que el input cambia de valor
   return (
-    <>
-      <form id='formReg' action="" onSubmit={handleSignup}>
-        <label htmlFor="nombre" >Nombre</label>
-        <input value={nombre} type="text" id='nombre' onChange={(e) => setnombre(e.target.value)} />
-        <br />
-        <label htmlFor="apellido">Apellido</label>
-        <input value={apellido} type="text" id='apellido' onChange={(e) => setapellido(e.target.value)}/>
-        <br />
-        <label htmlFor="correo">Correo</label>
-        <input value={correo} type="text" id='correo' onChange={(e)=>setcorreo(e.target.value)} />
-        <br />
-        <label htmlFor="contrasena">Contraseña</label>
-        <input value={contrasena} type="password" id='contrasena' onChange={(e) => setcontrasena(e.target.value)}/>
-        
-        <br />
-        <button type='submit'>Registrar</button>
-      </form>
-      <button  className='botoncitosini' onClick={loginPopupGoogle}>Google</button>
+    <div className="container-registro">
+      <div className="form-container">
+        <form id='formReg' onSubmit={handleSignup}>
+          <div className="input-group">
+            <label htmlFor="nombre">Nombre</label>
+            <input value={nombre} type="text" id='nombre' onChange={(e) => setnombre(e.target.value)} />
+          </div>
+          <div className="input-group">
+            <label htmlFor="apellido">Apellido</label>
+            <input value={apellido} type="text" id='apellido' onChange={(e) => setapellido(e.target.value)} />
+          </div>
+          <div className="input-group">
+            <label htmlFor="correo">Correo</label>
+            <input value={correo} type="text" id='correo' onChange={(e)=>setcorreo(e.target.value)} />
+          </div>
+          <div className="input-group">
+            <label htmlFor="contrasena">Contraseña</label>
+            <input value={contrasena} type="text" id='contrasena' onChange={(e) => setcontrasena(e.target.value)} />
+          </div>
+          <div className="input-group">
+            <label htmlFor="confirmar">Confirmación</label>
+            <input type="text" id='confirmar' />
+          </div>
+        </form>
 
-      <div id='botongoogleform'>      
+        <button className='botoncitosini' onClick={loginPopupGoogle}>Continuar con Google</button>
       </div>
-      
-    </>
-   
+      <div className="image-container">
+        <img src={HumboldtImage} alt="Humboldt" className="humboldt-image" /> {/* Usa la imagen importada */}
+      </div>
+    </div>
   );
 }
 
