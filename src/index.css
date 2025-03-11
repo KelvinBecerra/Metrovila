@@ -280,3 +280,60 @@ font-family: "Skranji";
 #botongoogleform{
     padding-left:  45%;
 }
+  
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #F6C041; /* Color de fondo */
+}
+
+.routes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.route-card {
+    background-color: #fff;
+    border-radius: 15px; /* Ajustado para que coincida más con la imagen */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+    margin: 15px;
+    padding: 15px; /* Margen interno ajustado */
+    width: 220px; /* Ajustado para más espacio */
+    transition: transform 0.2s; /* Añadido efecto de transición */
+}
+
+.route-card:hover {
+    transform: scale(1.05); /* Efecto de hover que amplía la tarjeta */
+}
+
+.route-card img {
+    border-radius: 15px; /* Igual que en la tarjeta */
+    width: 372px;
+    height: 300px;
+}
+
+.route-card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.route-card span {
+    display: block; /* Para la dificultad y duración */
+    font-size: 0.9em;
+    color: #666;
+}
+
+.show-more {
+    background-color: #000;
+    color: #fff;
+    padding: 12px 25px; /* Ajustado para más espacio */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.show-more:hover {
+    background-color: #444; /* Color de hover */
+}
