@@ -6,7 +6,8 @@ import { signInWithPopup } from 'firebase/auth'
 import { doc, setDoc } from 'firebase/firestore';
 import{createUserWithEmailAndPassword,updateProfile,getAuth} from 'firebase/auth';
 import { UserContext } from '../app.jsx';
-
+import { Link } from 'react-router-dom';
+import usuarioImg from '../assets/usuario.png';
 
 function DatosInput() {
   //declaracion de las variables a usar
@@ -91,6 +92,12 @@ function DatosInput() {
 //onChange es un evento que se dispara cada vez que el input cambia de valor
   return (
     <>
+      <div id='imagenuserdiv'>
+      <img src={usuarioImg} alt="usuarioimg" />
+
+      </div>
+
+    <div className='form=container'>
       <form id='formReg' action="" onSubmit={handleSignup}>
         <label htmlFor="nombre" >Nombre</label>
         <input value={nombre} type="text" id='nombre' onChange={(e) => setnombre(e.target.value)} />
@@ -107,11 +114,14 @@ function DatosInput() {
         <br />
         <button type='submit'>Registrar</button>
       </form>
-      <button  className='botoncitosini' onClick={loginPopupGoogle}>Google</button>
+      </div>
+      <Link to="/">
+        <button id='homecito'>home</button>
+      </Link>
+      <button  className='botoncitosini' onClick={loginPopupGoogle}>Ingresa por Google</button>
 
       <div id='botongoogleform'>      
       </div>
-      
     </>
    
   );

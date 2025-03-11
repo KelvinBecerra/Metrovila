@@ -1,5 +1,6 @@
 import React from 'react'
 import DatosInput from '../components/DatosInput'
+import { Link } from 'react-router-dom'
 
 
 function Formulario() {
@@ -7,10 +8,7 @@ function Formulario() {
     <div>
       
       <DatosInput/>
-      <button>Ingresar</button>
-      <a href="/">
-        <button>home</button>
-      </a>
+      
       
     </div>
   )
