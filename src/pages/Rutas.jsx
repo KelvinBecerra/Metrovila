@@ -22,64 +22,62 @@ function Rutas() {
           <button onClick={logout}>SignOut</button>
         </>
       ) : (
-        <p>no ha iniciado</p>
+        <p className="tipografia"> Debe Iniciar Sesion para reservar!</p>
       )}
-      <p>prueba</p>
       <Link to="/">
-        <button>regreso</button>
+        <button class="btn-regresar"> Regresar</button>
       </Link>
       
-      {/* Aquí comenzamos la sección de rutas */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', marginTop: '20px' }}>
-        <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '10px', margin: '10px' }}>
-        <img src="src/assets/SabasNieves.jpg" alt="Sabas Nieves" className="imagen-ruta" />
+      <div class="routes">
+            <div class="route-card">
+        <img src="src/assets/SabasNieves.jpg" alt="Sabas Nieves"/>
           <h3>Sabas Nieves</h3>
-          <p>⭐ 5.0</p>
-          <p>Dificultad: Media</p>
-          <p>Duración: 2 horas</p>
-          <p>$10 por persona</p>
+          <p className="tipografia">⭐ 5.0</p>
+          <p className="tipografia">Dificultad: Media</p>
+          <p className="tipografia">Duración: 2 horas</p>
+          <p className="tipografia">$10 por persona</p>
         </div>
-        <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '10px', margin: '10px' }}>
-          <img src="src/assets/LaJulia.jpg" alt="La Julia" className="imagen-ruta"/>
+        <div class="route-card">
+          <img src="src/assets/LaJulia.jpg" alt="La Julia"/>
           <h3>La Julia</h3>
-          <p>⭐ 4.5</p>
-          <p>Dificultad: Fácil</p>
-          <p>Duración: 30 minutos</p>
-          <p>$5 por persona</p>
+          <p className="tipografia">⭐ 4.5</p>
+          <p className="tipografia">Dificultad: Fácil</p>
+          <p className="tipografia">Duración: 30 minutos</p>
+          <p className="tipografia">$5 por persona</p>
         </div>
-        <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '10px', margin: '10px' }}>
-          <img src="src/assets/PicoNaiguata.jpg" alt="Pico Naiguata" className="imagen-ruta"/>
+        <div class="route-card">
+          <img src="src/assets/PicoNaiguata.jpg" alt="Pico Naiguata"/>
           <h3>Pico Naiguata</h3>
-          <p>⭐ 3.7</p>
-          <p>Dificultad: Alta</p>
-          <p>Duración: 6 horas</p>
-          <p>$25 por persona</p>
+          <p className="tipografia">⭐ 3.7</p>
+          <p className="tipografia">Dificultad: Alta</p>
+          <p className="tipografia">Duración: 6 horas</p>
+          <p className="tipografia">$25 por persona</p>
         </div>
-        <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '10px', margin: '10px' }}>
-          <img src="src/assets/Humboldt.jpg" alt="Humboldt" className="imagen-ruta"/>
+        <div class="route-card">
+          <img src="src/assets/Humboldt.jpg" alt="Humboldt"/>
           <h3>Humboldt</h3>
-          <p>⭐ 4.7</p>
-          <p>Dificultad: Alta</p>
-          <p>Duración: 3 horas</p>
-          <p>$15 por persona</p>
+          <p className="tipografia">⭐ 4.7</p>
+          <p className="tipografia">Dificultad: Alta</p>
+          <p className="tipografia">Duración: 3 horas</p>
+          <p className="tipografia">$15 por persona</p>
         </div>
-        <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '10px', margin: '10px' }}>
-          <img src="src/assets/ElEden.jpg" alt="El Edén" className="imagen-ruta"/>
+        <div class="route-card">
+          <img src="src/assets/ElEden.jpg" alt="El Edén"/>
           <h3>El Edén</h3>
-          <p>⭐ 2.0</p>
-          <p>Dificultad: Fácil</p>
-          <p>Duración: 15 minutos</p>
-          <p>$3 por persona</p>
+          <p className="tipografia">⭐ 2.0</p>
+          <p className="tipografia">Dificultad: Fácil</p>
+          <p className="tipografia">Duración: 15 minutos</p>
+          <p className="tipografia">$3 por persona</p>
         </div>
-        <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '10px', margin: '10px' }}>
-          <img src="src/assets/PiedraDelIndio.jpg" alt="Piedra del Indio" className="imagen-ruta"/>
+        <div class="route-card">
+          <img src="src/assets/PiedraDelIndio.jpg" alt="Piedra del Indio"/>
           <h3>Piedra del Indio</h3>
-          <p>⭐ 5.0</p>
-          <p>Dificultad: Alta</p>
-          <p>Duración: 2 horas</p>
-          <p>$10 por persona</p>
+          <p className="tipografia">⭐ 5.0</p>
+          <p className="tipografia">Dificultad: Alta</p>
+          <p className="tipografia">Duración: 2 horas</p>
+          <p className="tipografia">$10 por persona</p>
         </div>
-        <div class="mostrar-mas-container">
+        <div class="container-show-more">
         <button class="show-more">Mostrar más</button>
       </div>
       </div>
