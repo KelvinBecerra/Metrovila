@@ -3,7 +3,9 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from "firebase/firestore";
 const provider = new GoogleAuthProvider();
-
+//estos son los datos de la firebase, lo que nos da la pagina como tal para poder usar la autenticacion
+//funcion que permite el pupup de google y se autentifique
+//
 const firebaseConfig = {
   apiKey: "AIzaSyDAz_scCfuHemwiFpSVnEBVEJwfCvKQ9qY",
   authDomain: "metrovila-c8be9.firebaseapp.com",
@@ -20,6 +22,5 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-//funcion que permite el pupup de google y se autentifique
 
 export { db, app, auth, provider };

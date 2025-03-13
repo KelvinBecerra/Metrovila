@@ -1,5 +1,7 @@
 import React from 'react'
-
+//footer de la pagina
+//donde se muestra el numero de contacto
+//lo que esta abajo
 function Footer() {
   return (
     

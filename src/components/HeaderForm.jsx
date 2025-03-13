@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../assets/metrovilalogo.jpg'
-
+//el header de la pagina
+// es lo que esta arriba
 function HeaderForm() {
   return (
     <>

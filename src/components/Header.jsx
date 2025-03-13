@@ -5,6 +5,7 @@ import { UserContext } from '../app'
 import { signOut } from 'firebase/auth'
 import { auth } from '../pages/Firebase.js'; 
 //componente Header
+//funcion para cerrar sesion
 function Header() {
   const {user,setUser} = useContext(UserContext)
 
@@ -20,6 +21,10 @@ function Header() {
 
 //con user.displayName se puede acceder al nombre del usuario
 //lo primero que se encuentra es un condicional que verifica si el usuario esta logeado o no
+//si esta logeado se muestra un boton de cerrar sesion y el nombre del usuario
+// aqui es donde se podria usar que tipo de usuario es
+// y dependiendo de que tipo de usuario sea, se mostrara una informacion distinta
+//si no esta logeado se muestra un boton de iniciar sesion y un boton de registrarse
 return (
     <header>
       

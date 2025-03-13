@@ -19,7 +19,12 @@ function DatosInput() {
   const [correo,setcorreo]=useState('');  
   const [contrasena,setcontrasena]=useState('');
   const navigate = useNavigate();
-  
+  //funcion que se encarga de registrar al usuario
+  //en la base de datos de firebase(firestore)
+  //comprueba que la contrasena sea mayor a 6 caracteres
+  //se usa un metodo async await para hacerlo
+  // es un metodo que se encarga de esperar a que se cumpla una promesa
+  //para ejecutarse
   const handleSignup=async(event)=>{
     event.preventDefault();
     
@@ -67,6 +72,8 @@ function DatosInput() {
   }
 //funcion encargada de logear al usuario con google
 //y redireccionar a la pagina principal
+//navigate es una funcion que redirecciona a la pagina principal
+//scroll es una funcion que se encarga de llevar al usuario al inicio de la pagina
   const loginPopupGoogle = async () => {
     setLoading(true);
     provider.setCustomParameters({ prompt: 'select_account' });
@@ -90,6 +97,8 @@ function DatosInput() {
   };
 
 //onChange es un evento que se dispara cada vez que el input cambia de valor
+//el onSubmit en el form se dispara cuando se envia el formulario
+//la etiqueta Link se usa para enlazar a otra pagina sin necesidad de recargar la pagina
   return (
     <>
       <div id='imagenuserdiv'>

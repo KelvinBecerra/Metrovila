@@ -13,7 +13,15 @@ function Rutas() {
     setUser(null); // Actualiza el valor de user en el contexto
     scroll(0, 0);
   };
-
+//donde dice user? se refiere a una pregunta donde se retorna true o false
+//si es verdad se hara lo que esta antes de los : y si es falso se hace lo que esta despues
+//solo falta aplicarle diseno
+//las imagenes no se suben porque vercel no deja subir imagenes
+//le pregunte al preparador y me recomendo esto
+//supabase para las imagenes, se crea un bucket
+// ahi se suben las imagenes y se generara un url
+//lo pegan en el src de las imagenes
+// y aparecera
   return (
     <header>
       {user ? (

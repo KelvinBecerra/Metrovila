@@ -10,7 +10,8 @@ function Inisesion() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
+//funcion que se encarga de crear una pestana emergente
+// y con esa pagina de loggea el usuario
   const loginPopupGoogle = async () => {
     setLoading(true);
     provider.setCustomParameters({ prompt: 'select_account' });
@@ -32,7 +33,9 @@ function Inisesion() {
       setLoading(false);
     }
   };
-
+//aqui se muestra la pagina de inicio de sesion
+//se me olvido implementar la funcion de registro de usuario con los inputs que aparecen
+//falta hacer eso
   return (
     <>
       <div className='imagenuser-div'>

@@ -1,6 +1,8 @@
 import React from 'react'
 
-
+//componente de bienvenida
+//donde hay un titulo y un parrafo
+//ese componente donde se llame aparecera ese titulo y ese parrafo
 function Bienvenida() {
   return (
     <>
