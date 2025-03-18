@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+@font-face {
+    font-family: 'Skranji';
+    src: url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #cb7308ff;
+    font-family: 'Skranji', sans-serif;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-image: url('./assets/avila.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo img {
+    height: 100px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.header-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 100px;
+    width: 180px;
+    color: #ff9009;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    font-family: 'Skranji';
+}
+
+.btn:hover {
+    background-color: #ffc174;
+}
+
+/* Estilo para el nombre del usuario */
+.holauser {
+    color: white;
+    font-size: 20px;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #AD6014;
+    border-radius: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Bienvenida */
+.bienvenida {
+    font-size: 32px;
+    text-align: center;
+    margin: 20px auto;
+    color: white;
+    max-width: 90%;
+}
+
+.bienvenida p {
+    font-size: 16px;
+    max-width: 850px;
+    margin: 10px auto;
+    text-align: justify;
+}
+
+/* Misión */
+.mision {
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+    background: linear-gradient(to right, white, #ff9009);
+    width: 300px;
+    margin: 20px auto;
+    padding: 10px;
+    color: black;
+}
+
+/* Tarjetas de rutas */
+.ruta {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: #ff9009;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.ruta:hover {
+    background-color: #ffc174;
+}
+
+/* Input y Formularios */
+.inputcito {
+    height: 25px;
+    width: 30rem;
+    border-radius: 10px;
+    background-color: #AD6014;
+}
+
+.labelcitos, .labelcito {
+    color: white;
+    font-size: 25px;
+}
+
+.botoncitos, .botoncitomain, .botoncitosini {
+    background-color: #AD6014;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Skranji';
+}
+
+.botoncitos:hover, .botoncitomain:hover, .botoncitosini:hover {
+    background-color: #ff9009;
+    color: black;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+    header {
+        height: 200px;
+    }
+
+    .header-buttons {
+        justify-content: center;
+    }
+
+    .btn {
+        height: 80px;
+        width: 150px;
+        font-size: 16px;
+    }
+
+    .bienvenida {
+        font-size: 24px;
+    }
+
+    .ruta {
+        width: 100%;
+        padding: 10px;
+    }
+}
