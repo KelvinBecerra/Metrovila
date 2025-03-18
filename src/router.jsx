@@ -6,6 +6,11 @@ import Formulario from "./pages/Formulario";
 import Inisesion from "./pages/Inisesion"
 import Rutas from "./pages/Rutas";
 
+import RutaDetalle from "./pages/RutaDetalle"; //NUEVO 
+
+//asi fue como maneje las rutas en el proyecto
+//hay una manera mas facil segun he visto, pero me parecio mas comoda esta
+//
 export const router = createBrowserRouter([
     {
         path:"/",
@@ -41,7 +46,7 @@ export const router = createBrowserRouter([
         element: <Inisesion/>
     },
     {
-        path:"/rutas",
-        element: <Rutas/>
+        path: "/rutas/:rutaId",
+        element: <RutaDetalle />, //(NUEVO)
     }
 ])
