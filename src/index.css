@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+@font-face {
+    font-family: 'Skranji';
+    src: url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body{
+    background-color: #cb7308ff ;
+}
+header{
+    position: relative;
+    width: 100%;
+    height: 300px; /* Altura del header */
+    background-image: url('./assets/avila.jpg'); /* Ruta de la imagen */
+    background-size: cover;
+    background-position: center; /* Centra la imagen en el header */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); /* Sombra difuminada debajo del header */
+}
+
+.logo img {
+    height: 100px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 30px;
+}
+.header-buttons{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+.btn{
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 100px;
+    width: 180px;
+    color:#ff9009;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    font-family: "Skranji";
+    /*Cosas que faltan
+    el mensaje de mision y visio
+    bajar el footer
+    que los botones funcionen*/
+}
+/*diseno para que se vea el nombre del usuario*/
+.holauser{
+    color: white;
+    font-size: 20px;
+    font-family: "Skranji";
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #AD6014;
+    border-radius: 30px;
+    padding: 10px;
+}
+.btns{
+    border: none;
+border-radius: 30px;
+padding: 10px 20px;
+cursor: pointer;
+height: 80px;
+width: 150px;
+color:#ff9009;
+text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+font-size: 20px;
+font-family: "Skranji";
+}
+
+.btn:hover {
+    background-color: #ffc174;
+  }
+.bienvenida{
+    font-size: 32px;
+    font-family: "Skranji";
+    display: flex;
+    justify-content: center;
+    padding: 0.1px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: white;
+}
+
+.bienvenida p{
+    font-size: 16px;
+    justify-content: center;
+    max-width: 850px;
+    margin: 10px 50px 20px 0;
+    }
+
+.mision{
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0px 0px 0px 0.1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinea verticalmente */
+    font-family: "Skranji";
+    border-radius: 30px;
+    background: linear-gradient(to right, white, #ff9009);
+    width: 300px;  /* Asegúrate de que el ancho esté definido */
+    margin: 50px auto; /* Cambia aquí para centrar horizontalmente */
+    }
+#parrafo{
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido esté en columna */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 100%; /* Asegúrate de que use todo el ancho disponible */
+    max-width: 700px; /* Máxima anchura para el contenedor */
+    border-radius: 30px;
+    background: linear-gradient(to bottom, white, #ff9009);
+    padding: 20px;
+    margin: auto; /* Centra el contenedor en la página */
+    font-size: 20px;
+    font-family: "Skranji";
+}
+.ruta{
+    display: flex;
+    margin: 500px auto 0; /* Cambiar para centrar horizontalmente */
+    border-radius: 30px; 
+    padding: 40px; 
+    width: 400px; 
+    align-items: center; 
+    justify-content: center; 
+    height: 20px; 
+    font-size: 40px;
+    font-family: "Skranji"; 
+    cursor: pointer; 
+    text-decoration: none; 
+    color: #ff9009; 
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); 
+} 
+.ruta:hover{ 
+    background-color: #ffc174; }
+#rutaid{
+    text-decoration: none;
+}
+.contacto{
+    
+    margin-top: 50px;
+    padding-top: 5px;
+    padding: 40px;
+    background-color: white;
+    height: 100px;
+    
+}
+.logoform{
+    margin-top: 10px;
+    margin-left: 40%;
+}
+.logoform img{
+    height: 100px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 30px;
+}
+.headerform {
+    background-color: white;
+    background-image: none;
+    height: fit-content;
+}
+
+#formReg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    #formReg bottom
+    {
+        padding: 1rem; 
+    }
+    #formReg input 
+    {
+        width: 20rem;
+    }
+
+
+#sesion{
+    color: white;
+}
+.imagenuser {
+    border-radius: 30px;
+    width: 200px;
+    height: 190px;
+}
+
+.imagenuser-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.labelcitos{
+    color: white;
+    font-size: 25px;
+    padding-right: 26rem;
+}
+.labelcito{
+    color: white;
+    font-size: 25px;
+    padding-right: 23rem;
+}
+.inputcito{
+    height: 25px;
+    width: 30rem;
+    border-radius: 10px;
+    background-color: #AD6014;
+}
+.inisesion-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.botoncitos{
+    background-color: #AD6014;
+    color: white;
+    border-radius: 10px;
+
+    
+}
+.botoncitos:hover{
+    
+    background-color: #ff9009;
+    color: black;
+    cursor: pointer;
+}
+.containerboton{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.botoncitomain{
+    background-color: #AD6014;
+    color: white;
+    width: 20rem;
+    height: 5rem;
+    border-radius: 20px;
+    font-family: "Skranji";
+    font-size: 2rem;
+
+}
+.botoncitomain:hover{
+    background-color: #ff9009;
+    color: black;
+    cursor: pointer;
+}
+.botoncitosini{
+    
+    margin-left: 35rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #AD6014;
+    color: white;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-family: "Skranji";
+
+}
+.botoncitosini:hover{
+    
+    background-color: #ff9009;
+    color: black;
+    cursor: pointer;
+}
+
+#botongoogleform{
+    padding-left:  45%;
+}
+.usuario-img {
+    margin-right: 20px; /* Espacio entre la imagen y el formulario */
+    width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+  }
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+  }
+  
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #F6C041; /* Color de fondo */
+}
+
+.routes {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten */
+    justify-content: center; /* Centrar los elementos */
+    margin: 20px 0;
+    height: 519px;
+}
+
+.route-card {
+    background-color: #138f05;
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    flex: 0 1 calc(33.33% - 20px); 
+    margin: 10px; 
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    width: 300px;
+    transition: transform 0.2s; 
+}
+
+.route-card:hover {
+    transform: scale(1.05);
+}
+
+.route-card img {
+    border-radius: 10px;
+    width: 97%;
+    border: 6px solid white;
+    height: auto;
+}
+
+
+.route-card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.img-card {
+    border-radius: 5px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    margin: 5px;
+    padding: 5px; 
+    width: 220px; 
+}
+
+.container-show-more {    
+    display: flex; /* Usar flexbox para alinear horizontalmente */
+    justify-content: center; /* Centrar el botón */
+    margin-top: auto;
+}
+.show-more {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Skranji', sans-serif; 
+    font-size: 14px; 
+    padding: 12px 25px; /* Ajustado para más espacio */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 90%;            /* Toma el 100% de la altura */
+    transition: transform 0.2s
+}
+
+.show-more:hover {
+    background-color: #2b2a2a; /* Color de hover */
+    transform: scale(1.03)
+}
+
+h3 {
+    font-family: 'Skranji', sans-serif; 
+    font-size: 30px; 
+    font-weight: bold; 
+    color: white
+}
+
+.tipografia {
+    font-family: 'Skranji', sans-serif; 
+    font-size: 20px; 
+    color: white; 
+    line-height: 1.5; 
+}
+.btn-regresar {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Skranji', sans-serif; 
+    font-size: 14px; 
+    padding: 12px 25px; /* Ajustado para más espacio */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s
+}
+
+#formReg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20%; 
+    padding: 20px; 
+  }
+  
+  #formReg label {
+    margin-bottom: 5px; 
+    color: white;
+    margin-left: 35rem;
+
+  }
+  
+  #formReg input {
+    margin-bottom: 15px; /* Espacio entre los inputs */
+    width: 100%; /* Asegura que los inputs ocupen todo el ancho disponible */
+    max-width: 300px; /* Máximo ancho de los inputs */
+    padding: 10px; /* Espacio interno de los inputs */
+    border: 1px solid #ccc; /* Borde de los inputs */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #AD6014;
+    margin-left: 35rem;
+
+  }
+  
+  #formReg button {
+    margin-left: 35rem;
+
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #AD6014; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    cursor: pointer; 
+    font-family: 'Skranji', sans-serif;
+    font-size: 1rem;
+  }
+  
+  #formReg button:hover {
+    background-color: #ffffff;
+    color: #ff9009;
+    
+  }
+  #homecito{
+    margin-left: 35rem;
+    
+    margin-top: 1rem;
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #AD6014; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    cursor: pointer; 
+    font-family: 'Skranji', sans-serif;
+    font-size: 1rem;
+  }
+  
+  #imagenuserdiv img {
+    width: 20rem;
+    margin-top: 1rem;
+    margin-left: 37rem;
+  }
+  .form-container {
+    
+    display: flex;
+  align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+  justify-content: space-between; /* Espacio entre el formulario y la imagen */
+  padding: 20px;
+  margin-top: 20px; /* Espacio entre el formulario y el header */
+}
+@media (max-width: 768px) {
+    .header-buttons {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .btn {
+        width: 100%;
+        height: auto;
+        font-size: 16px;
+    }
+
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #formReg {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    #formReg label, #formReg input, #formReg button, #homecito {
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+    }
+
+    #imagenuserdiv img {
+        margin-left: 0;
+        width: 100%;
+        max-width: 150px;
+    }
+
+    .routes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .route-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        font-size: 14px;
+    }
+
+    .bienvenida {
+        font-size: 24px;
+    }
+
+    .bienvenida p {
+        font-size: 14px;
+    }
+
+    .mision {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    #parrafo {
+        font-size: 16px;
+    }
+
+    .ruta {
+        font-size: 24px;
+        padding: 20px;
+    }
+
+    .route-card {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .show-more {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .tipografia {
+        font-size: 16px;
+    }
+    .botoncitosini{
+    
+        margin-left: 3rem;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        background-color: #AD6014;
+        color: white;
+        border-radius: 10px;
+        font-size: 2rem;
+        font-family: "Skranji";
+    
+    }
+}
