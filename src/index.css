@@ -262,6 +262,11 @@ font-family: "Skranji";
     cursor: pointer;
 }
 .botoncitosini{
+    
+    margin-left: 35rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
     background-color: #AD6014;
     color: white;
     border-radius: 10px;
@@ -279,6 +284,17 @@ font-family: "Skranji";
 #botongoogleform{
     padding-left:  45%;
 }
+.usuario-img {
+    margin-right: 20px; /* Espacio entre la imagen y el formulario */
+    width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+  }
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+  }
   
 .container {
     text-align: center;
@@ -378,4 +394,180 @@ h3 {
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.2s
+}
+
+#formReg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20%; 
+    padding: 20px; 
+  }
+  
+  #formReg label {
+    margin-bottom: 5px; 
+    color: white;
+    margin-left: 35rem;
+
+  }
+  
+  #formReg input {
+    margin-bottom: 15px; /* Espacio entre los inputs */
+    width: 100%; /* Asegura que los inputs ocupen todo el ancho disponible */
+    max-width: 300px; /* Máximo ancho de los inputs */
+    padding: 10px; /* Espacio interno de los inputs */
+    border: 1px solid #ccc; /* Borde de los inputs */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #AD6014;
+    margin-left: 35rem;
+
+  }
+  
+  #formReg button {
+    margin-left: 35rem;
+
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #AD6014; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    cursor: pointer; 
+    font-family: 'Skranji', sans-serif;
+    font-size: 1rem;
+  }
+  
+  #formReg button:hover {
+    background-color: #ffffff;
+    color: #ff9009;
+    
+  }
+  #homecito{
+    margin-left: 35rem;
+    
+    margin-top: 1rem;
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #AD6014; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    cursor: pointer; 
+    font-family: 'Skranji', sans-serif;
+    font-size: 1rem;
+  }
+  
+  #imagenuserdiv img {
+    width: 20rem;
+    margin-top: 1rem;
+    margin-left: 37rem;
+  }
+  .form-container {
+    
+    display: flex;
+  align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+  justify-content: space-between; /* Espacio entre el formulario y la imagen */
+  padding: 20px;
+  margin-top: 20px; /* Espacio entre el formulario y el header */
+}
+@media (max-width: 768px) {
+    .header-buttons {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .btn {
+        width: 100%;
+        height: auto;
+        font-size: 16px;
+    }
+
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #formReg {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    #formReg label, #formReg input, #formReg button, #homecito {
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+    }
+
+    #imagenuserdiv img {
+        margin-left: 0;
+        width: 100%;
+        max-width: 150px;
+    }
+
+    .routes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .route-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        font-size: 14px;
+    }
+
+    .bienvenida {
+        font-size: 24px;
+    }
+
+    .bienvenida p {
+        font-size: 14px;
+    }
+
+    .mision {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    #parrafo {
+        font-size: 16px;
+    }
+
+    .ruta {
+        font-size: 24px;
+        padding: 20px;
+    }
+
+    .route-card {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .show-more {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .tipografia {
+        font-size: 16px;
+    }
+    .botoncitosini{
+    
+        margin-left: 3rem;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        background-color: #AD6014;
+        color: white;
+        border-radius: 10px;
+        font-size: 2rem;
+        font-family: "Skranji";
+    
+    }
 }

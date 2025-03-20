@@ -1,9 +1,11 @@
 import React from 'react'
-
+//footer de la pagina
+//donde se muestra el numero de contacto
+//lo que esta abajo
 function Footer() {
   return (
     
-       <footer class="contacto">
+       <footer className="contacto">
         <p>Contactanos</p>
         <p>0212-2521999</p>
         <p>0416-2513992</p>
