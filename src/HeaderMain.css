@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+@font-face {
+    font-family: 'Skranji';
+    src: url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+}
+.header {
+    background-image: url('./assets/avila.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Asegúrate de que no se repita */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    height: 300px; /* Altura del header */
+    position: relative;
+}
+.hidden-header {
+    display: none; /* Oculta el header */
+}
+
+.navContainer {
+    display: flex;
+    align-items: center; 
+    padding: 10px; 
+    border-radius: 20px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: "Skranji";
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    font-family: "Skranji";
+}
+
+.navButton, .searchInput, .searchButton {
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    padding: 10px 15px;
+    font-family: "Skranji";
+}
+
+.searchInput {
+    margin: 0 10px; 
+    font-family: "Skranji";
+}
+
+.searchButton {
+    background-color: #000000; 
+    color: rgb(255, 255, 255); 
+    font-family: "Skranji";
+}
+
+.navButton:hover, .searchInput:hover, .searchButton:hover {
+    background-color: #cccccc;
+    transform: scale(1.03)
+}

@@ -1,18 +1,19 @@
-import React from 'react';
-import DatosInput from '../components/DatosInput';
+import React from 'react'
+import DatosInput from '../components/DatosInput'
+import { Link } from 'react-router-dom'
 
+//esto no es necesario que exista, 
+// se podria tener la pagina de registrodatos inputs,
+//  pero ya se hizo y me da lala cambiarlo porque funcion
 function Formulario() {
   return (
-    <div className="formulario-container">
-      <DatosInput />
-      <div className="botones-container">
-        <button className='botoncitosini'>Ingresar</button>
-        <a href="/">
-          <button className='botoncitosini'>home</button>
-        </a>
-      </div>
+    <div>
+      
+      <DatosInput/>
+      
+      
     </div>
-  );
+  )
 }
 
-export default Formulario;
+export default Formulario
