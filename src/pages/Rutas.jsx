@@ -5,7 +5,9 @@ import { auth } from '../pages/Firebase.js';
 import { Link } from 'react-router-dom';
 import { upload } from '../Supabase/SupabaseClient.js';
 import { useEffect } from 'react';
+import HeaderMain from '/src/components/HeaderMain';
 import "/src/index.css";
+import Footer from '/src/components/Footer' 
 
 function Rutas() {
 
@@ -147,21 +149,20 @@ function Rutas() {
 // ahi se suben las imagenes y se generara un url
 //lo pegan en el src de las imagenes
 // y aparecera
-  return (
-    <header>
-      {user ? (
-        <>
-          <button className='btns' onClick={logout}>SignOut</button>
-        </>
-      ) : (
-        <p className="tipografia"> Debe Iniciar Sesion para reservar!</p>
-      )}
-      <Link to="/">
-        <button className="btn-regresar"> Regresar</button>
-      </Link>
-      <Route/>
-    </header>
-  );
+return (
+  <div className="containerRutas">
+    <HeaderMain />
+    {user ? (
+      <>
+        <button className='btns' onClick={logout}>SignOut</button>
+      </>
+    ) : (
+      <p className="tipografia"> Debe Iniciar Sesion para reservar!</p>
+    )}
+    <Route />
+    <Footer className="footer-margin" />
+  </div>
+);
 }
 
-export default Rutas;
+export default Rutas;
