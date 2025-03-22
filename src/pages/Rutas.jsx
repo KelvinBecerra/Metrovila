@@ -1,168 +1,109 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../app';
 import { signOut } from 'firebase/auth';
 import { auth } from '../pages/Firebase.js'; 
-import { Link } from 'react-router-dom';
 import { upload } from '../Supabase/SupabaseClient.js';
-import { useEffect } from 'react';
 import HeaderMain from '/src/components/HeaderMain';
 import "/src/index.css";
-import Footer from '/src/components/Footer' 
+import Footer from '/src/components/Footer';
 
 function Rutas() {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [images, setImages] = useState({});
+    const { user, setUser  } = useContext(UserContext);
 
-  //funcion para obtener el url de las imagenes
-  
-  const getPublicImageUrl = (fileName)=> {
-      const { data, error } =  upload
-          .storage
-          .from('metrovilabucket')
-          .getPublicUrl(fileName);
-  
-      if (error) {
-          console.error('Error al obtener la URL pública:', error);
-          return null;
-      }
-      return data.publicUrl;
-  };
-  //------------------------------------
-  //es un componente funciona;
-  //son funciones en js que retornan jsx para renderizar en la pantalla
-  const [images, setImages] = useState({});
-
-  // useEffect para cargar las URLs al montar
-
-  //esta funcion busca el url de las imagenes y las guarda en el estado
-  //seteando ek estado de images
-  useEffect(() => {
-    const fetchImageUrls = async () => {
-      const fileNames = [
-        'PicoNaiguata.jpg',
-        'SabasNieves.png',
-        'LaJulia.jpg',
-        'Humboldt.jpg',
-        'ElEden.jpg',
-        'PiedraDelIndio.jpg',
-      ];
-
-      const imageUrls = await Promise.all(
-        fileNames.map(async (fileName) => ({
-          [fileName]: getPublicImageUrl(fileName),
-        }))
-      );
-      try {
-        const imageUrls = await Promise.all(
-          fileNames.map(async (fileName) => ({
-            [fileName]: getPublicImageUrl(fileName),
-          }))
-        );
-  
-        const formattedUrls = Object.assign({}, ...imageUrls);
-        setImages(formattedUrls);
-        console.log('Image URLs fetched successfully:', formattedUrls);
-      } catch (error) {
-        console.error('Error fetching image URLs:', error);
-      }
+    // Función para obtener el URL de las imágenes
+    const getPublicImageUrl = (fileName) => {
+        const { data, error } = upload.storage.from('metrovilabucket').getPublicUrl(fileName);
+        if (error) {
+            console.error('Error al obtener la URL pública:', error);
+            return null;
+        }
+        return data.publicUrl;
     };
 
-    fetchImageUrls();
+    // useEffect para cargar las URLs al montar
+    useEffect(() => {
+        const fetchImageUrls = async () => {
+            const fileNames = [
+                'PicoNaiguata.jpg',
+                'SabasNieves.png',
+                'LaJulia.jpg',
+                'Humboldt.jpg',
+                'ElEden.jpg',
+                'PiedraDelIndio.jpg',
+            ];
 
-  }, []);
+            const imageUrls = await Promise.all(
+                fileNames.map(async (fileName) => ({
+                    [fileName]: getPublicImageUrl(fileName),
+                }))
+            );
 
-    
-  //------------------------------------
-  const { user, setUser } = useContext(UserContext);
+            const formattedUrls = Object.assign({}, ...imageUrls);
+            setImages(formattedUrls);
+            console.log('Image URLs fetched successfully:', formattedUrls);
+        };
 
-  const logout = async () => {
-    await signOut(auth);
-    setUser(null); // Actualiza el valor de user en el contexto
-    scroll(0, 0);
-  };
-// es un subcomponente que se encarga de renderizar y organizar lo que se va a mostrar por el navegador
-  const Route=()=>(
-    
-      <div className="routes">
-        <div className="route-card">
-          <img src={images['SabasNieves.png']} alt="Sabas Nieves" /> 
-           <h3>Sabas Nieves</h3>
-          <p className="tipografia">⭐ 5.0</p>
-          <p className="tipografia">Dificultad: Media</p>
-          <p className="tipografia">Duración: 2 horas</p>
-          <p className="tipografia">$10 por persona</p>
+        fetchImageUrls();
+    }, []);
+
+    const logout = async () => {
+        await signOut(auth);
+        setUser (null); // Actualiza el valor de user en el contexto
+        scroll(0, 0);
+    };
+
+    // Manejar el cambio en el input de búsqueda
+    const handleSearch = (term) => {
+        setSearchTerm(term);
+    };
+
+    // Filtrar rutas basadas en el término de búsqueda
+    const filteredRoutes = [
+        { name: 'Sabas Nieves', image: images['SabasNieves.png'] },
+        { name: 'La Julia', image: images['LaJulia.jpg'] },
+        { name: 'Pico Naiguata', image: images['PicoNaiguata.jpg'] },
+        { name: 'Humboldt', image: images['Humboldt.jpg'] },
+        { name: 'El Edén', image: images['ElEden.jpg'] },
+        { name: 'Piedra del Indio', image: images['PiedraDelIndio.jpg'] },
+    ].filter(route => 
+        route.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    // Componente para renderizar las rutas
+    const Route = () => (
+        <div className="routes">
+            {filteredRoutes.map(route => (
+                <div className="route-card" key={route.name}>
+                    <img src={route.image} alt={route.name} /> 
+                    <h3>{route.name}</h3>
+                    <p className="tipografia">⭐ 5.0</p>
+                    <p className="tipografia">Dificultad: Media</p>
+                    <p className="tipografia">Duración: 2 horas</p>
+                    <p className="tipografia">$10 por persona</p>
+                </div>
+            ))}
+            <div className="container-show-more">
+                <button className="show-more">Mostrar más</button>
+            </div>
         </div>
-        
-        <div class="route-card">
-        <img src={images['LaJulia.jpg']} alt="La Julia" /> 
+    );
 
-          <h3>La Julia</h3>
-          <p className="tipografia">⭐ 4.5</p>
-          <p className="tipografia">Dificultad: Fácil</p>
-          <p className="tipografia">Duración: 30 minutos</p>
-          <p className="tipografia">$5 por persona</p>
+    return (
+        <div className="containerRutas">
+            <HeaderMain onSearch={handleSearch} />
+            {user ? (
+                <>
+                    <button className='btns' onClick={logout}>SignOut</button>
+                </>
+            ) : (
+                <p className="tipografia"> Debe Iniciar Sesion para reservar!</p>
+            )}
+            <Route />
+            <Footer className="footer-margin" />
         </div>
-        <div class="route-card">
-        <img src={images['PicoNaiguata.jpg']} alt="Pico Naiguata" /> 
-
-          <h3>Pico Naiguata</h3>
-          <p className="tipografia">⭐ 3.7</p>
-          <p className="tipografia">Dificultad: Alta</p>
-          <p className="tipografia">Duración: 6 horas</p>
-          <p className="tipografia">$25 por persona</p>
-        </div>
-        <div class="route-card">
-        <img src={images['Humboldt.jpg']} alt="Humboldt" /> 
-
-          <h3>Humboldt</h3>
-          <p className="tipografia">⭐ 4.7</p>
-          <p className="tipografia">Dificultad: Alta</p>
-          <p className="tipografia">Duración: 3 horas</p>
-          <p className="tipografia">$15 por persona</p>
-        </div>
-        <div class="route-card">
-
-          <img src={images["ElEden.jpg"]} alt="El Edén"/>
-          <h3>El Edén</h3>
-          <p className="tipografia">⭐ 2.0</p>
-          <p className="tipografia">Dificultad: Fácil</p>
-          <p className="tipografia">Duración: 15 minutos</p>
-          <p className="tipografia">$3 por persona</p>
-        </div>
-        <div class="route-card">
-          <img src={images['PiedraDelIndio.jpg']} alt="Piedra del Indio"/>
-          <h3>Piedra del Indio</h3>
-          <p className="tipografia">⭐ 5.0</p>
-          <p className="tipografia">Dificultad: Alta</p>
-          <p className="tipografia">Duración: 2 horas</p>
-          <p className="tipografia">$10 por persona</p>
-        </div>
-        <div className="container-show-more">
-        <button className="show-more">Mostrar más</button>
-      </div>
-      </div>
-  );
-//donde dice user? se refiere a una pregunta donde se retorna true o false
-//si es verdad se hara lo que esta antes de los : y si es falso se hace lo que esta despues
-//solo falta aplicarle diseno
-//las imagenes no se suben porque vercel no deja subir imagenes
-//le pregunte al preparador y me recomendo esto
-//supabase para las imagenes, se crea un bucket
-// ahi se suben las imagenes y se generara un url
-//lo pegan en el src de las imagenes
-// y aparecera
-return (
-  <div className="containerRutas">
-    <HeaderMain />
-    {user ? (
-      <>
-        <button className='btns' onClick={logout}>SignOut</button>
-      </>
-    ) : (
-      <p className="tipografia"> Debe Iniciar Sesion para reservar!</p>
-    )}
-    <Route />
-    <Footer className="footer-margin" />
-  </div>
-);
+    );
 }
 
 export default Rutas;
