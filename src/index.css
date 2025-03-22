@@ -116,7 +116,7 @@ font-family: "Skranji";
     font-family: "Skranji";
     border-radius: 30px;
     background: linear-gradient(to right, white, #ff9009);
-    width: 300px;  /* Asegúrate de que el ancho esté definido */
+    width: 300px;  /* Asegura de que el ancho esté definido */
     margin: 50px auto; /* Cambia aquí para centrar horizontalmente */
     }
 #parrafo{
@@ -124,7 +124,7 @@ font-family: "Skranji";
     flex-direction: column; /* Asegura que el contenido esté en columna */
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    width: 100%; /* Asegúrate de que use todo el ancho disponible */
+    width: 100%; /* Asegura de que use todo el ancho disponible */
     max-width: 700px; /* Máxima anchura para el contenedor */
     border-radius: 30px;
     background: linear-gradient(to bottom, white, #ff9009);
