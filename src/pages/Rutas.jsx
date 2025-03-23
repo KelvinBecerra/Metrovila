@@ -1,18 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../app';
 import { signOut } from 'firebase/auth';
 import { auth } from '../pages/Firebase.js';
 import { Link, useNavigate } from 'react-router-dom';
 import { upload } from '../Supabase/SupabaseClient.js';
-import { useEffect } from 'react';
 import "/src/index.css";
 
 function Rutas() {
   const [images, setImages] = useState({});
   const [cupos, setCupos] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
-  const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate(); // Para realizar navegación
 
   // Verificar si el usuario es administrador
   const isAdmin = user?.isAdmin;
@@ -56,21 +55,23 @@ function Rutas() {
   const logout = async () => {
     await signOut(auth);
     setUser(null);
-    scroll(0, 0);
   };
 
   const handleRouteClick = () => {
     if (isAdmin) {
       const modificar = confirm('¿Desea modificar esta ruta?');
       if (modificar) {
-        navigate('/editar-ruta');
+        alert('Simulación: Ruta modificada (sin realizar acciones adicionales).');
         return;
       }
     }
+
     const cuposSeleccionados = prompt('¿Cuántos cupos desea reservar?');
     if (cuposSeleccionados && !isNaN(cuposSeleccionados)) {
-      setCupos(Number(cuposSeleccionados));
-      navigate('/pago', { state: { cupos: cuposSeleccionados } });
+      const cuposNumber = Number(cuposSeleccionados); // Convierte a número
+      console.log('Cupos seleccionados antes de navegar:', cuposNumber); // Log para depuración
+      setCupos(cuposNumber); // Actualiza el estado local
+      navigate('/pago', { state: { cupos: cuposNumber } }); // Navega con el estado
     } else {
       alert('Por favor, ingrese un número válido.');
     }
@@ -109,7 +110,7 @@ function Rutas() {
     <header>
       {user ? (
         <>
-          <button className='btns' onClick={logout}>SignOut</button>
+          <button className='btns' onClick={logout}>Cerrar Sesión</button>
         </>
       ) : (
         <p className="tipografia">Debe Iniciar Sesión para reservar!</p>
