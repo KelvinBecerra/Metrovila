@@ -1,37 +1,31 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../app';
 import { signOut } from 'firebase/auth';
-import { auth } from '../pages/Firebase.js'; 
-import { Link } from 'react-router-dom';
+import { auth } from '../pages/Firebase.js';
+import { Link, useNavigate } from 'react-router-dom';
 import { upload } from '../Supabase/SupabaseClient.js';
 import { useEffect } from 'react';
 import "/src/index.css";
 
 function Rutas() {
-
-  //funcion para obtener el url de las imagenes
-  
-  const getPublicImageUrl = (fileName)=> {
-      const { data, error } =  upload
-          .storage
-          .from('metrovilabucket')
-          .getPublicUrl(fileName);
-  
-      if (error) {
-          console.error('Error al obtener la URL pública:', error);
-          return null;
-      }
-      return data.publicUrl;
-  };
-  //------------------------------------
-  //es un componente funciona;
-  //son funciones en js que retornan jsx para renderizar en la pantalla
   const [images, setImages] = useState({});
+  const [cupos, setCupos] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
 
-  // useEffect para cargar las URLs al montar
+  // Verificar si el usuario es administrador
+  const isAdmin = user?.isAdmin;
 
-  //esta funcion busca el url de las imagenes y las guarda en el estado
-  //seteando ek estado de images
+  const getPublicImageUrl = (fileName) => {
+    const { data, error } = upload.storage.from('metrovilabucket').getPublicUrl(fileName);
+    if (error) {
+      console.error('Error al obtener la URL pública:', error);
+      return null;
+    }
+    return data.publicUrl;
+  };
+
   useEffect(() => {
     const fetchImageUrls = async () => {
       const fileNames = [
@@ -43,110 +37,74 @@ function Rutas() {
         'PiedraDelIndio.jpg',
       ];
 
-      const imageUrls = await Promise.all(
-        fileNames.map(async (fileName) => ({
-          [fileName]: getPublicImageUrl(fileName),
-        }))
-      );
       try {
         const imageUrls = await Promise.all(
           fileNames.map(async (fileName) => ({
             [fileName]: getPublicImageUrl(fileName),
           }))
         );
-  
         const formattedUrls = Object.assign({}, ...imageUrls);
         setImages(formattedUrls);
-        console.log('Image URLs fetched successfully:', formattedUrls);
       } catch (error) {
         console.error('Error fetching image URLs:', error);
       }
     };
 
     fetchImageUrls();
-
   }, []);
-
-    
-  //------------------------------------
-  const { user, setUser } = useContext(UserContext);
 
   const logout = async () => {
     await signOut(auth);
-    setUser(null); // Actualiza el valor de user en el contexto
+    setUser(null);
     scroll(0, 0);
   };
-// es un subcomponente que se encarga de renderizar y organizar lo que se va a mostrar por el navegador
-  const Route=()=>(
-    
-      <div className="routes">
-        <div className="route-card">
-          <img src={images['SabasNieves.png']} alt="Sabas Nieves" /> 
-           <h3>Sabas Nieves</h3>
-          <p className="tipografia">⭐ 5.0</p>
-          <p className="tipografia">Dificultad: Media</p>
-          <p className="tipografia">Duración: 2 horas</p>
-          <p className="tipografia">$10 por persona</p>
-        </div>
-        
-        <div class="route-card">
-        <img src={images['LaJulia.jpg']} alt="La Julia" /> 
 
-          <h3>La Julia</h3>
-          <p className="tipografia">⭐ 4.5</p>
-          <p className="tipografia">Dificultad: Fácil</p>
-          <p className="tipografia">Duración: 30 minutos</p>
-          <p className="tipografia">$5 por persona</p>
-        </div>
-        <div class="route-card">
-        <img src={images['PicoNaiguata.jpg']} alt="Pico Naiguata" /> 
+  const handleRouteClick = () => {
+    if (isAdmin) {
+      const modificar = confirm('¿Desea modificar esta ruta?');
+      if (modificar) {
+        navigate('/editar-ruta');
+        return;
+      }
+    }
+    const cuposSeleccionados = prompt('¿Cuántos cupos desea reservar?');
+    if (cuposSeleccionados && !isNaN(cuposSeleccionados)) {
+      setCupos(Number(cuposSeleccionados));
+      navigate('/pago', { state: { cupos: cuposSeleccionados } });
+    } else {
+      alert('Por favor, ingrese un número válido.');
+    }
+  };
 
-          <h3>Pico Naiguata</h3>
-          <p className="tipografia">⭐ 3.7</p>
-          <p className="tipografia">Dificultad: Alta</p>
-          <p className="tipografia">Duración: 6 horas</p>
-          <p className="tipografia">$25 por persona</p>
-        </div>
-        <div class="route-card">
-        <img src={images['Humboldt.jpg']} alt="Humboldt" /> 
+  const filteredRoutes = [
+    { name: 'Sabas Nieves', image: 'SabasNieves.png', difficulty: 'Media', duration: '2 horas', price: '$10 por persona', rating: '⭐ 5.0' },
+    { name: 'La Julia', image: 'LaJulia.jpg', difficulty: 'Fácil', duration: '30 minutos', price: '$5 por persona', rating: '⭐ 4.5' },
+    { name: 'Pico Naiguatá', image: 'PicoNaiguata.jpg', difficulty: 'Alta', duration: '6 horas', price: '$25 por persona', rating: '⭐ 3.7' },
+    { name: 'Humboldt', image: 'Humboldt.jpg', difficulty: 'Alta', duration: '3 horas', price: '$15 por persona', rating: '⭐ 4.7' },
+    { name: 'El Edén', image: 'ElEden.jpg', difficulty: 'Fácil', duration: '15 minutos', price: '$3 por persona', rating: '⭐ 2.0' },
+    { name: 'Piedra del Indio', image: 'PiedraDelIndio.jpg', difficulty: 'Alta', duration: '2 horas', price: '$10 por persona', rating: '⭐ 5.0' },
+  ].filter((route) =>
+    route.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-          <h3>Humboldt</h3>
-          <p className="tipografia">⭐ 4.7</p>
-          <p className="tipografia">Dificultad: Alta</p>
-          <p className="tipografia">Duración: 3 horas</p>
-          <p className="tipografia">$15 por persona</p>
+  const Route = () => (
+    <div className="routes">
+      {filteredRoutes.map((route, index) => (
+        <div key={index} className="route-card" onClick={handleRouteClick}>
+          <img src={images[route.image]} alt={route.name} />
+          <h3>{route.name}</h3>
+          <p className="tipografia">{route.rating}</p>
+          <p className="tipografia">Dificultad: {route.difficulty}</p>
+          <p className="tipografia">Duración: {route.duration}</p>
+          <p className="tipografia">{route.price}</p>
         </div>
-        <div class="route-card">
-
-          <img src={images["ElEden.jpg"]} alt="El Edén"/>
-          <h3>El Edén</h3>
-          <p className="tipografia">⭐ 2.0</p>
-          <p className="tipografia">Dificultad: Fácil</p>
-          <p className="tipografia">Duración: 15 minutos</p>
-          <p className="tipografia">$3 por persona</p>
-        </div>
-        <div class="route-card">
-          <img src={images['PiedraDelIndio.jpg']} alt="Piedra del Indio"/>
-          <h3>Piedra del Indio</h3>
-          <p className="tipografia">⭐ 5.0</p>
-          <p className="tipografia">Dificultad: Alta</p>
-          <p className="tipografia">Duración: 2 horas</p>
-          <p className="tipografia">$10 por persona</p>
-        </div>
-        <div className="container-show-more">
+      ))}
+      <div className="container-show-more">
         <button className="show-more">Mostrar más</button>
       </div>
-      </div>
+    </div>
   );
-//donde dice user? se refiere a una pregunta donde se retorna true o false
-//si es verdad se hara lo que esta antes de los : y si es falso se hace lo que esta despues
-//solo falta aplicarle diseno
-//las imagenes no se suben porque vercel no deja subir imagenes
-//le pregunte al preparador y me recomendo esto
-//supabase para las imagenes, se crea un bucket
-// ahi se suben las imagenes y se generara un url
-//lo pegan en el src de las imagenes
-// y aparecera
+
   return (
     <header>
       {user ? (
@@ -154,14 +112,21 @@ function Rutas() {
           <button className='btns' onClick={logout}>SignOut</button>
         </>
       ) : (
-        <p className="tipografia"> Debe Iniciar Sesion para reservar!</p>
+        <p className="tipografia">Debe Iniciar Sesión para reservar!</p>
       )}
+      <input
+        type="text"
+        placeholder="Buscar rutas..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="search-bar"
+      />
       <Link to="/">
-        <button className="btn-regresar"> Regresar</button>
+        <button className="btn-regresar">Regresar</button>
       </Link>
-      <Route/>
+      <Route />
     </header>
   );
 }
 
-export default Rutas;
+export default Rutas;

@@ -1,8 +1,9 @@
-// MultipleFiles/pages/Pago.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Pago() {
+  const location = useLocation();
+  const { cupos } = location.state || {};
   const [nombre, setNombre] = useState('');
   const [tarjeta, setTarjeta] = useState('');
   const [fechaExpiracion, setFechaExpiracion] = useState('');
@@ -11,13 +12,14 @@ function Pago() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Pago procesado con éxito');
-    navigate('/'); // Redirige a la página principal después del pago
+    alert(`Pago procesado con éxito para ${cupos} cupos`);
+    navigate('/');
   };
 
   return (
     <div className="pago-container">
       <h1>Detalles de Pago</h1>
+      <p>{cupos ? `Cupos reservados: ${cupos}` : 'No se seleccionaron cupos'}</p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="nombre">Nombre en la Tarjeta</label>
         <input

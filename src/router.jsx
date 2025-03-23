@@ -3,19 +3,14 @@ import Moldepages from "./layout/Moldepages";
 import Formulariomolde from "./layout/Formulariomolde";
 import Home from "./pages/Home";
 import Formulario from "./pages/Formulario";
-import Inisesion from "./pages/Inisesion"
+import Inisesion from "./pages/Inisesion";
 import Rutas from "./pages/Rutas";
-//asi fue como maneje las rutas en el proyecto
-//hay una manera mas facil segun he visto, pero me parecio mas comoda esta
-//
+import Pago from "./pages/Pago"; // Importar Pago
+
 export const router = createBrowserRouter([
     {
         path:"/",
         element: <Moldepages/>,
-        /*aqui se le esta asignando el diseno de pagina principal
-        a las paginas que esten como hijos
-        las cuales deberian ser las de inicio
-         */
         children: [
             {
                 path:"/",
@@ -27,7 +22,7 @@ export const router = createBrowserRouter([
             }
         ]
     },
-    {/**aqui se le esta asignando el diseno a la pagina formulario */
+    {
         path:"/formulario",
         element: <Formulariomolde/>,
         children:[
@@ -36,7 +31,6 @@ export const router = createBrowserRouter([
                 element: <Formulario/>
             }
         ]
-       
     },
     {
         path:"/iniciosesion",
@@ -45,5 +39,9 @@ export const router = createBrowserRouter([
     {
         path:"/rutas",
         element: <Rutas/>
+    },
+    {
+        path:"/pago", // Ruta para el componente Pago
+        element: <Pago/>
     }
-])
+]);
